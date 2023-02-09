@@ -11,4 +11,7 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 
+// 设置根字体
+import './utils/rem.ts'
+
 app.mount('#app')

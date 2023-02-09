@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cmn-Hans">
   <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="./favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% if (env.MODE === 'development') { %>
+    <script src="./setting/connection-dev.js"></script>
+    <% } %> <% if (env.MODE === 'production') { %>
+    <script src="./setting/connection-pro.js"></script>
+    <% } %>
+    <script src="./setting/rem-reference-size.js"></script>
     <title>Vite App</title>
   </head>
   <body>
