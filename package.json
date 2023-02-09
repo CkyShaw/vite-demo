@@ -62,6 +62,11 @@
     "vue-eslint-parser": "^9.1.0",
     "vue-tsc": "^1.0.12"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
+  },
   "lint-staged": {
     "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": "npm run lint",
     "*.{css,scss,sass,vue,html}": "npm run lint:style"
