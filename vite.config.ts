@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 import { visualizer } from 'rollup-plugin-visualizer'
+import { ViteEjsPlugin } from 'vite-plugin-ejs'
 
 import pkg from './package.json'
 
@@ -15,8 +16,12 @@ export default defineConfig({
     vueJsx(),
     visualizer({
       filename: 'dist/report.html'
-    })
+    }),
+    ViteEjsPlugin(viteConfig => ({
+      env: viteConfig.env
+    }))
   ],
+  base: './',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
@@ -27,5 +32,8 @@ export default defineConfig({
   },
   build: {
     outDir: `dist/${pkg.name}_${pkg.version}`
+  },
+  define: {
+    global: {}
   }
 })
